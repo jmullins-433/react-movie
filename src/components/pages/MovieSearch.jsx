@@ -26,15 +26,27 @@ const MovieSearch = () => {
     };
 
 
-      useEffect(() => {
-    if (searchQuery) {
-      
-      handleSearch(searchQuery); 
+     useEffect(() => {
+  if (searchQuery) {
+    const fetchMovies = async () => {
+      setIsLoading(true);
 
-      setSearchParams({}, { replace: true });
+      try {
+        const response = await axios.get(
+          `https://www.omdbapi.com/?apikey=dd2c9531&s=${searchQuery}`
+        );
+        setMovies(response.data.Search || []);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-    }
-  }, [searchQuery, setSearchParams]); 
+    fetchMovies();
+    setSearchParams({}, { replace: true });
+  }
+}, [searchQuery, setSearchParams]);
 
     useEffect(() => {
     setSearchTerm(searchQuery);
