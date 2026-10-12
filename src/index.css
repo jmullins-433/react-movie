@@ -425,6 +425,12 @@ a.btnn-contact:hover {
   
 }
 
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
 .search-term {
     color: #6030b1;
 }

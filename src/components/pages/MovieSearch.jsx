@@ -179,7 +179,7 @@ const MovieSearch = () => {
             
             <div className="moviesGrid">
                 {movies.slice(0, 6).map((movie) => (
-                    <div className='movie' key={movie.imdbID}>
+                    <div className='movie-card' key={movie.imdbID}>
                         <img src={movie.Poster} onClick={() => handleLearnMore(movie.imdbID)} alt="Poster" />
                         <h2>{movie.Title}</h2>
                         <h4>{movie.Year}</h4>
